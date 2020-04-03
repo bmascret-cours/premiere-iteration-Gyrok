@@ -1,5 +1,5 @@
 package model;
 
-public class AbstractPiece implements Pieces{
+public abstract class AbstractPiece implements Pieces{
 
 }
