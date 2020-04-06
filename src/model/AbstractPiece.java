@@ -7,6 +7,7 @@ public abstract class AbstractPiece implements Pieces{
 	public AbstractPiece(Couleur couleur,Coord coord) {
 		this.x = coord.x;
 		this.y = coord.y;
+		this.couleur = couleur;
 	}
 	 @Override
 	 public java.lang.String toString() {
@@ -46,4 +47,10 @@ public abstract class AbstractPiece implements Pieces{
 		return true;
 	}
 	public abstract boolean isMoveOk(int xFinal,int yFinal);
+
+	public void main () {
+		Pieces maTour = new Tour(Couleur.NOIR, new Coord(0, 0));
+		Couleur testCouleur = maTour.getCouleur();
+		System.out.println(testCouleur);
+	}
 }

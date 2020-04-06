@@ -6,6 +6,7 @@ public class Tour extends AbstractPiece{
 	public String name = "Tour";
 	public Tour(Couleur couleur_de_piece, Coord coord) {
 		super(couleur_de_piece, coord);
+		
 	}
 
 
