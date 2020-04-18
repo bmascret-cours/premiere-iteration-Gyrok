@@ -9,6 +9,13 @@ public abstract class AbstractPiece implements Pieces{
 		this.y = coord.y;
 		this.couleur = couleur;
 	}
+	
+	// Test main
+	public static void main(String[] args) {
+		Pieces maTour = new Tour(Couleur.NOIR, new Coord(0, 0));
+		Couleur testCouleur = maTour.getCouleur();
+		System.out.println(maTour.getCoord());
+	}	
 	 @Override
 	 public java.lang.String toString() {
 		 // retourne le nom et les coordonnées x et y de la pièce
@@ -48,9 +55,5 @@ public abstract class AbstractPiece implements Pieces{
 	}
 	public abstract boolean isMoveOk(int xFinal,int yFinal);
 
-	public void main () {
-		Pieces maTour = new Tour(Couleur.NOIR, new Coord(0, 0));
-		Couleur testCouleur = maTour.getCouleur();
-		System.out.println(testCouleur);
-	}
+
 }
