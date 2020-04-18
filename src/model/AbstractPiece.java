@@ -13,8 +13,7 @@ public abstract class AbstractPiece implements Pieces{
 	// Test main
 	public static void main(String[] args) {
 		Pieces maTour = new Tour(Couleur.NOIR, new Coord(0, 0));
-		Couleur testCouleur = maTour.getCouleur();
-		System.out.println(maTour.getCoord());
+		System.out.println(maTour.isMoveOk(0,5));
 	}	
 	 @Override
 	 public java.lang.String toString() {

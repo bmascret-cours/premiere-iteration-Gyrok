@@ -9,9 +9,9 @@ public class Tour extends AbstractPiece{
 		
 	}
 
-	public boolean isMoveOk(int x, int y) {
+	public boolean isMoveOk(int xFinal, int yFinal) {
 		// pas bouger si pas de déplacement ou déplacement sur les 2 axes en même temps
-		if (((x != y) & (x == 0)) ^ ((x != y) & (y == 0))) { // and xor and
+		if (((xFinal != yFinal) & (xFinal == 0)) ^ ((xFinal != yFinal) & (yFinal == 0))) { // and xor and
 			return true;
 		}
 		else {
@@ -19,5 +19,4 @@ public class Tour extends AbstractPiece{
 		}
 		
 	}
-	
 }
