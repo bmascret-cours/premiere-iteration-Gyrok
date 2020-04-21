@@ -20,8 +20,8 @@ public class Jeu {
 	}
 	
 	public void toString(List<Pieces> pieces) {
+		
 		// itérer sur les pieces pour call les toString
-
 		for (Pieces piece : this.pieces) {
 		   String testString = piece.toString(); 
 		   System.out.println(testString);
