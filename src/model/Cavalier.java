@@ -7,6 +7,13 @@ public class Cavalier extends AbstractPiece {
 	}
 	
 	public boolean isMoveOk(int xFinal,int yFinal) {
+		
+		// vérification que on est toujours dans la grille
+		
+		if (this.OoB(xFinal, yFinal)) {
+			return false;
+		}
+		else {
 		int deltaX = xFinal - this.x;
 		int deltaY = yFinal - this.y;
 		
@@ -44,6 +51,7 @@ public class Cavalier extends AbstractPiece {
 		
 		else {
 			return false;
+		}
 		}
 	}
 }

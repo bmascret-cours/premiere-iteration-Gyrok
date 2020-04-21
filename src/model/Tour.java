@@ -10,12 +10,22 @@ public class Tour extends AbstractPiece{
 	}
 
 	public boolean isMoveOk(int xFinal, int yFinal) {
-		// pas bouger si pas de déplacement ou déplacement sur les 2 axes en même temps
-		if (((xFinal != yFinal) & (xFinal == 0)) ^ ((xFinal != yFinal) & (yFinal == 0))) { // and xor and
-			return true;
+		
+		if (this.OoB(xFinal, yFinal)) {
+			
+			return false;
 		}
 		else {
-			return false;
+			
+			if ((xFinal == this.x) && (yFinal != this.y)) {
+				return true;
+			}
+			else if ((yFinal == this.y) && (xFinal != this.x)) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		
 	}

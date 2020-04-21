@@ -1,8 +1,8 @@
 package model;
 
-public class Reine extends AbstractPiece{
+public class Roi extends AbstractPiece{
 
-	public Reine(Couleur couleur, Coord coord) {
+	public Roi(Couleur couleur, Coord coord) {
 		super(couleur, coord);
 	}
 	public boolean isMoveOk(int xFinal, int yFinal) {
@@ -14,8 +14,14 @@ public class Reine extends AbstractPiece{
 		else {
 			int deltaX = xFinal - this.x;
 			int deltaY = yFinal - this.y;
+			
+			// comme la reine mais condition supplémentaire: limite de distance à 1
+			if ((deltaX > 1) || (deltaY > 1)) {
+				return false;
+			}
+			
 			// On commence par les déplacements en droite
-			if((xFinal == this.x) && (yFinal != this.y)) {
+			else if((xFinal == this.x) && (yFinal != this.y)) {
 				return true;
 			}
 			else if ((yFinal == this.y) && (xFinal != this.x)) {

@@ -35,18 +35,29 @@ public abstract class AbstractPiece implements Pieces{
 	 
 	 public boolean move(int x,int y) {
 	
-	if (this.isMoveOk(x,y)) {
-		this.x = x;
-		this.y = y;
-		return true;
-	}
+		if (this.isMoveOk(x,y)) {
+			this.x = x;
+			this.y = y;
+			return true;
+		}
 	
-	else {
-		return false;
-	}
+		else {
+			return false;
+		}
 	
 	}
 		
+	 
+	public boolean OoB(int xFinal, int yFinal) {
+		
+		if(((xFinal > 8) || (xFinal < 1)) || ((yFinal > 8) || (yFinal < 1))) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	 
 	public boolean capture() {
 		this.x = -1;
 		this.y = -1;
