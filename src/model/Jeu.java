@@ -49,7 +49,7 @@ public class Jeu {
 	public Coord getKingCoord() {
 		
 		for (Pieces piece : this.pieces) {
-			AbstractPiece pieceTest = piece;
+			AbstractPiece pieceTest;
 			if (pieceTest.nom == "Roi"){
 				Coord coordRoi = new Coord(piece.getX(),piece.getY());
 				return coordRoi;
