@@ -42,6 +42,20 @@ public class Jeu {
 		return pieceTrouvee;
 	}
 	
+	public boolean capture(int xCatch, int yCatch) {
+		return this.findPiece(xCatch, yCatch).capture();
+	}
+
+	public Coord getKingCoord() {
+		
+		for (Pieces piece : this.pieces) {
+			AbstractPiece pieceTest = piece;
+			if (pieceTest.nom == "Roi"){
+				Coord coordRoi = new Coord(piece.getX(),piece.getY());
+				return coordRoi;
+			}
+		}
+	}
 	
 	public boolean isPieceHere(int x,int y) {
 		for (Pieces piece : this.pieces) {
@@ -52,17 +66,19 @@ public class Jeu {
 		return false;
 	}
 
-	
 	public boolean isMoveOk(int xInit, int yInit,int xFinal,int yFinal) {
-		return true; // true si déplacement possible
+		return this.findPiece(xInit, yInit).isMoveOk(xFinal,yFinal); // true si déplacement possible
 	}
 	
 	public boolean move(int xInit,int yInit,int xFinal,int yFinal) {
-		// appelle is moveOk puis collision
+
 		// on commence par chercher quelle pièce est à l'endroit init
-		// puis si le mvt est ok pour elle, ensuite on vérifie si il y a une pièce à l'endroit
-		//où on arrive
-		//ensuite pour tour/reine/fou si il y a une pièce entre init et arrivée
-		return true; // true si déplacement effectué
+		Pieces pieceInit = this.findPiece(xInit, yInit);
+		if ((pieceInit != null) && this.isMoveOk(xInit ,yInit ,xFinal ,yFinal)) {
+			// Maintenant on vérifie si on capture
+			
+			return true;
+		}
+		 return false;
 	}
 }
