@@ -50,7 +50,7 @@ public abstract class AbstractPiece implements Pieces{
 	 
 	public boolean OoB(int xFinal, int yFinal) {
 		
-		if(((xFinal > 8) || (xFinal < 1)) || ((yFinal > 8) || (yFinal < 1))) {
+		if(((xFinal > 7) || (xFinal < 0)) || ((yFinal > 7) || (yFinal < 0))) {
 			return true;
 		}
 		else {

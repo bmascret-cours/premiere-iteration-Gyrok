@@ -8,8 +8,8 @@ public class Jeu {
 	
 	List<Pieces> pieces;
 	public Jeu(Couleur couleur) {
-		//Couleur pieceCouleur = couleur;
-		//this.pieces = ChessPiecesFactory.newPieces(pieceCouleur);
+		Couleur pieceCouleur = couleur;
+		this.pieces = ChessPiecesFactory.newPieces(pieceCouleur);
 	}
 
 	// Test main

@@ -1,9 +1,12 @@
 package model;
 
 public class Cavalier extends AbstractPiece {
-
+	
+	
+	String nom ="Cavalier";
 	public Cavalier(Couleur couleur, Coord coord) {
 		super(couleur, coord);
+		
 	}
 	
 	public boolean isMoveOk(int xFinal,int yFinal) {

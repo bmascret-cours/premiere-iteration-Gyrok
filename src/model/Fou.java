@@ -2,6 +2,7 @@ package model;
 
 public class Fou extends AbstractPiece{
 
+	String nom ="Fou";
 	public Fou(Couleur couleur, Coord coord) {
 		super(couleur, coord);
 	}

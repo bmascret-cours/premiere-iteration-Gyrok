@@ -1,9 +1,8 @@
 package model;
 
 public class Tour extends AbstractPiece{
-	public int x, y;
-	public Couleur couleur;
-	public String name = "Tour";
+	
+	String nom = "Tour";
 	public Tour(Couleur couleur_de_piece, Coord coord) {
 		super(couleur_de_piece, coord);
 		

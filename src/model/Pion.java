@@ -1,7 +1,9 @@
 package model;
 
-class Pion extends AbstractPiece{
+public class Pion extends AbstractPiece{
 
+	
+	String nom ="Pion";
 	public Pion(Couleur couleur, Coord coord) {
 		super(couleur, coord);
 	}
@@ -17,7 +19,7 @@ class Pion extends AbstractPiece{
 			}
 			
 			// pour le saut possible au départ => implique que y = hauteur plateau
-			else if ((xFinal == this.x) && (yFinal == 4)) {
+			else if ((xFinal == this.x) && (yFinal == 3)) {
 				return true;
 			}
 			else {
