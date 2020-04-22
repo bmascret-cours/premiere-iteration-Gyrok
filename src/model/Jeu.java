@@ -44,9 +44,14 @@ public class Jeu {
 	
 	
 	public boolean isPieceHere(int x,int y) {
-		// boucle sur les 2 listes de pièces (?)
-		return true; // true si une pièce se trouve aux coordonnées indiquées
+		for (Pieces piece : this.pieces) {
+			if ((piece.getX() == x) && (piece.getY() == y)){
+				return true; // true si une pièce se trouve aux coordonnées indiquées
+			}
+		}
+		return false;
 	}
+
 	
 	public boolean isMoveOk(int xInit, int yInit,int xFinal,int yFinal) {
 		return true; // true si déplacement possible
@@ -54,6 +59,10 @@ public class Jeu {
 	
 	public boolean move(int xInit,int yInit,int xFinal,int yFinal) {
 		// appelle is moveOk puis collision
+		// on commence par chercher quelle pièce est à l'endroit init
+		// puis si le mvt est ok pour elle, ensuite on vérifie si il y a une pièce à l'endroit
+		//où on arrive
+		//ensuite pour tour/reine/fou si il y a une pièce entre init et arrivée
 		return true; // true si déplacement effectué
 	}
 }
