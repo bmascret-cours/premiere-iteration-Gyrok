@@ -3,9 +3,10 @@ package model;
 public class Reine extends AbstractPiece{
 
 	
-	String nom ="Reine";
+
 	public Reine(Couleur couleur, Coord coord) {
 		super(couleur, coord);
+		this.nom = "Reine";
 	}
 	public boolean isMoveOk(int xFinal, int yFinal) {
 		

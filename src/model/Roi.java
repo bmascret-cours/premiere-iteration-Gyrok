@@ -3,9 +3,10 @@ package model;
 public class Roi extends AbstractPiece{
 
 	
-	String nom ="Roi";
+
 	public Roi(Couleur couleur, Coord coord) {
 		super(couleur, coord);
+		this.nom = "Roi";
 	}
 	public boolean isMoveOk(int xFinal, int yFinal) {
 		

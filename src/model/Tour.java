@@ -2,10 +2,10 @@ package model;
 
 public class Tour extends AbstractPiece{
 	
-	String nom = "Tour";
+
 	public Tour(Couleur couleur_de_piece, Coord coord) {
 		super(couleur_de_piece, coord);
-		
+		this.nom = "Tour";
 	}
 
 	public boolean isMoveOk(int xFinal, int yFinal) {

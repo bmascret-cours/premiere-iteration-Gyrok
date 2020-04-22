@@ -3,10 +3,10 @@ package model;
 public class Cavalier extends AbstractPiece {
 	
 	
-	String nom ="Cavalier";
+
 	public Cavalier(Couleur couleur, Coord coord) {
 		super(couleur, coord);
-		
+		this.nom = "Cavalier";
 	}
 	
 	public boolean isMoveOk(int xFinal,int yFinal) {

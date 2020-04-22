@@ -3,9 +3,10 @@ package model;
 public class Pion extends AbstractPiece{
 
 	
-	String nom ="Pion";
+
 	public Pion(Couleur couleur, Coord coord) {
 		super(couleur, coord);
+		this.nom = "Pion";
 	}
 	
 	public boolean isMoveOk(int xFinal, int yFinal) {

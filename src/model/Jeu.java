@@ -27,6 +27,16 @@ public class Jeu {
 		   System.out.println(testString);
 		}
 	}
+	
+	private Pieces findPiece(int x, int y) {
+		Pieces pieceTrouvee = null;
+		for (Pieces piece : this.pieces) {
+			if ((piece.getX() == x) && (piece.getY() == y)){
+				pieceTrouvee = piece;
+			}
+		}
+		return pieceTrouvee;
+	}
 	public boolean isPieceHere(int x,int y) {
 		// boucle sur les 2 listes de pièces (?)
 		return true; // true si une pièce se trouve aux coordonnées indiquées
