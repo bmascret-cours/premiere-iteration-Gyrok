@@ -31,12 +31,18 @@ public class Jeu {
 	private Pieces findPiece(int x, int y) {
 		Pieces pieceTrouvee = null;
 		for (Pieces piece : this.pieces) {
+			
+			/* On compare une seule fois vu que de toute façon si chevauchement
+			*	c'est que cette méthode a déjà mal fait son travail
+			*/
 			if ((piece.getX() == x) && (piece.getY() == y)){
 				pieceTrouvee = piece;
 			}
 		}
 		return pieceTrouvee;
 	}
+	
+	
 	public boolean isPieceHere(int x,int y) {
 		// boucle sur les 2 listes de pièces (?)
 		return true; // true si une pièce se trouve aux coordonnées indiquées
