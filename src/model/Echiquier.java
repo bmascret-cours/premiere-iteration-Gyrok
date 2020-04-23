@@ -57,8 +57,7 @@ public class Echiquier implements BoardGames{
 
 	@Override
 	public boolean move(int xInit, int yInit, int xFinal, int yFinal) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.jeuCourant.move(xInit, yInit, xFinal, yFinal);
 	}
 
 	@Override
@@ -80,8 +79,7 @@ public class Echiquier implements BoardGames{
 	}
 
 	public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.jeuCourant.isMoveOk(xInit, yInit, xFinal, yFinal);
 	}
 
 }
