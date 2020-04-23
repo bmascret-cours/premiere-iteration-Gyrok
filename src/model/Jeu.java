@@ -112,4 +112,8 @@ public class Jeu {
 	public void undoMove() {
 		this.move(this.xFinalPrevious, this.yFinalPrevious, this.xInitPrevious, this.yInitPrevious);
 	}
+
+	public java.util.List<PieceIHM> getPiecesIHM(){
+		return null; // TODO: trouver annexe
+	}
 }
