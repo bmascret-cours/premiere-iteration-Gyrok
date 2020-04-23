@@ -6,9 +6,16 @@ import tools.ChessPiecesFactory;
 
 public class Jeu {
 	
+	
+	Couleur couleurJeu = Couleur.BLANC;
 	List<Pieces> pieces;
+	int xFinalPrevious = -1;
+	int yFinalPrevious = -1;
+	int xInitPrevious = -1;
+	int yInitPrevious = -1;
 	public Jeu(Couleur couleur) {
 		Couleur pieceCouleur = couleur;
+		this.couleurJeu = couleur;
 		this.pieces = ChessPiecesFactory.newPieces(pieceCouleur);
 	}
 
@@ -19,6 +26,38 @@ public class Jeu {
 		testConstruction.toString(listPieces);
 	}
 	
+	public boolean isPieceHere(int x,int y) {
+		for (Pieces piece : this.pieces) {
+			if ((piece.getX() == x) && (piece.getY() == y)){
+				return true; // true si une pièce se trouve aux coordonnées indiquées
+			}
+		}
+		return false;
+	}
+	
+	public boolean isMoveOk(int xInit, int yInit,int xFinal,int yFinal) {
+		return this.findPiece(xInit, yInit).isMoveOk(xFinal,yFinal); // true si déplacement possible
+	}
+	
+	public boolean move(int xInit,int yInit,int xFinal,int yFinal) {
+
+		// on commence par chercher quelle pièce est à l'endroit init
+		Pieces pieceInit = this.findPiece(xInit, yInit);
+		// Maintenant on vérifie si on capture
+		if ((pieceInit != null) && this.isMoveOk(xInit ,yInit ,xFinal ,yFinal)) {
+			
+			// met  à jour dernier mvt pour pouvoir revenir en arrière
+			// ptet ajouter un objet move
+			this.xFinalPrevious = xFinal;
+			this.yFinalPrevious = yFinal;
+			this.xInitPrevious = xInit;
+			this.yInitPrevious = yInit;
+			
+			return true;
+		}
+		 return false;
+	}
+		
 	public void toString(List<Pieces> pieces) {
 		
 		// itérer sur les pieces pour call les toString
@@ -26,6 +65,15 @@ public class Jeu {
 		   String testString = piece.toString(); 
 		   System.out.println(testString);
 		}
+	}
+	
+	public Couleur getPieceColor(int x,int y) {
+		return this.findPiece(x, y).getCouleur();
+		
+	}
+	
+	public java.lang.String getPieceType(int x,int y){
+		return this.findPiece(x, y).getClass().getSimpleName();
 	}
 	
 	private Pieces findPiece(int x, int y) {
@@ -42,43 +90,26 @@ public class Jeu {
 		return pieceTrouvee;
 	}
 	
-	public boolean capture(int xCatch, int yCatch) {
-		return this.findPiece(xCatch, yCatch).capture();
+	public Couleur getCouleur() {
+		return this.couleurJeu;
 	}
 
 	public Coord getKingCoord() {
 		
+		Coord returnPlaceholder = new Coord(-1,-1);
 		for (Pieces piece : this.pieces) {
-			AbstractPiece pieceTest = ;
-			if (pieceTest.nom == "Roi"){
+			
+			if (this.getPieceType(piece.getX(), piece.getY()) == "Roi"){
+				
 				Coord coordRoi = new Coord(piece.getX(),piece.getY());
 				return coordRoi;
+				
 			}
 		}
-	}
-	
-	public boolean isPieceHere(int x,int y) {
-		for (Pieces piece : this.pieces) {
-			if ((piece.getX() == x) && (piece.getY() == y)){
-				return true; // true si une pièce se trouve aux coordonnées indiquées
-			}
-		}
-		return false;
+		return returnPlaceholder;
 	}
 
-	public boolean isMoveOk(int xInit, int yInit,int xFinal,int yFinal) {
-		return this.findPiece(xInit, yInit).isMoveOk(xFinal,yFinal); // true si déplacement possible
-	}
-	
-	public boolean move(int xInit,int yInit,int xFinal,int yFinal) {
-
-		// on commence par chercher quelle pièce est à l'endroit init
-		Pieces pieceInit = this.findPiece(xInit, yInit);
-		if ((pieceInit != null) && this.isMoveOk(xInit ,yInit ,xFinal ,yFinal)) {
-			// Maintenant on vérifie si on capture
-			
-			return true;
-		}
-		 return false;
+	public void undoMove() {
+		this.move(this.xFinalPrevious, this.yFinalPrevious, this.xInitPrevious, this.yInitPrevious);
 	}
 }
