@@ -59,13 +59,16 @@ public class Jeu {
 		 return false;
 	}
 		
-	public void toString(List<Pieces> pieces) {
+	public String toString(List<Pieces> pieces) {
 		
+		String returnString = "";
 		// itérer sur les pieces pour call les toString
 		for (Pieces piece : this.pieces) {
 		   String testString = piece.toString(); 
 		   System.out.println(testString);
+		   returnString = returnString + testString + " ";
 		}
+		return returnString;
 	}
 	
 	public Couleur getPieceColor(int x,int y) {

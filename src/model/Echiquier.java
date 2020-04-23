@@ -1,5 +1,9 @@
 package model;
 
+import java.util.List;
+
+import tools.ChessPiecesFactory;
+
 public class Echiquier implements BoardGames{
 	
 	// On initialise les 2 jeux.
@@ -14,6 +18,11 @@ public class Echiquier implements BoardGames{
 		this.jeuAttente = new Jeu(Couleur.NOIR);
 	}
 	
+	public static void main(String[] args) {
+		Echiquier test = new Echiquier();
+		String ficelleTest = test.toString();
+		System.out.println(ficelleTest);
+	}
 	/**
 	 * @param message the message to set
 	 */
@@ -26,6 +35,13 @@ public class Echiquier implements BoardGames{
 		return this.message;
 	}
 	
+	
+	public String toString() {
+		String jeuC = this.jeuCourant.toString(jeuCourant.pieces);
+		String jeuA = this.jeuAttente.toString(jeuCourant.pieces);
+		String strFinal = jeuC + jeuA;
+		return strFinal;
+	}
 	public Object getPiecesIHM() {
 		// TODO Auto-generated method stub
 		return null;
