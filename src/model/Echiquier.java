@@ -42,10 +42,6 @@ public class Echiquier implements BoardGames{
 		String strFinal = jeuC + jeuA;
 		return strFinal;
 	}
-	public Object getPiecesIHM() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public void switchJoueur() {
 		
@@ -81,5 +77,10 @@ public class Echiquier implements BoardGames{
 	public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal) {
 		return this.jeuCourant.isMoveOk(xInit, yInit, xFinal, yFinal);
 	}
-
+	public List<PieceIHM> getPiecesIHM(){
+		List<PieceIHM> partie1 = this.jeuCourant.getPiecesIHM();
+		List<PieceIHM> partie2 = this.jeuAttente.getPiecesIHM();
+		partie1.addAll(partie2);
+		return partie1;
+	}
 }
