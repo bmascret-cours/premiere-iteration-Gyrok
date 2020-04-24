@@ -37,7 +37,12 @@ public class Jeu {
 	}
 	
 	public boolean isMoveOk(int xInit, int yInit,int xFinal,int yFinal) {
-		return this.findPiece(xInit, yInit).isMoveOk(xFinal,yFinal); // true si déplacement possible
+		if (this.findPiece(xInit, yInit) == null) {
+			return false;
+		}
+		else {
+			return this.findPiece(xInit, yInit).isMoveOk(xFinal,yFinal); // true si déplacement possible
+		}
 	}
 	
 	public boolean move(int xInit,int yInit,int xFinal,int yFinal) {

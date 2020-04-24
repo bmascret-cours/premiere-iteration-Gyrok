@@ -27,9 +27,9 @@ public class ChessGameControler extends AbstractChessGameControler {
 	@Override
 	public boolean isPlayerOK(Coord initCoord) {
 		
-		// ToDo
+		// ToDo vérifier bonne couleur ( joueur blanc ne touche que du blanc)
 		
-		return false; // ici pour enlever code erreur
+		return true; // ici pour enlever code erreur
 	}
 	
 	/* (non-Javadoc)
