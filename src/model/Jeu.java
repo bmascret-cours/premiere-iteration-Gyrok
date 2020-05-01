@@ -8,7 +8,7 @@ import tools.ChessPiecesFactory;
 public class Jeu {
 	
 	
-	Couleur couleurJeu = Couleur.BLANC;
+	Couleur couleurJeu;
 	List<Pieces> pieces;
 	int xFinalPrevious = -1;
 	int yFinalPrevious = -1;
@@ -51,7 +51,7 @@ public class Jeu {
 		Pieces pieceInit = this.findPiece(xInit, yInit);
 		// Maintenant on vérifie si on capture
 		if ((pieceInit != null) && this.isMoveOk(xInit ,yInit ,xFinal ,yFinal)) {
-			
+			pieceInit.move(xFinal, yFinal);
 			// met  à jour dernier mvt pour pouvoir revenir en arrière
 			// ptet ajouter un objet move
 			this.xFinalPrevious = xFinal;
@@ -87,6 +87,7 @@ public class Jeu {
 	
 	private Pieces findPiece(int x, int y) {
 		Pieces pieceTrouvee = null;
+		
 		for (Pieces piece : this.pieces) {
 			
 			/* On compare une seule fois vu que de toute façon si chevauchement

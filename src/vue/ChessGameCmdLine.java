@@ -36,7 +36,6 @@ public class ChessGameCmdLine implements Observer{
 	public void update(Observable arg0, Object arg1) {
 		
 		System.out.println(chessGameControler.getMessage() + "\n");	
-
 		List<PieceIHM> piecesIHM = (List<PieceIHM>) arg1;
 
 

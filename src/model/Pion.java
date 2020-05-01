@@ -11,16 +11,19 @@ public class Pion extends AbstractPiece{
 	
 	public boolean isMoveOk(int xFinal, int yFinal) {
 		
+
 		if (this.OoB(xFinal, yFinal)){
+			
 			return false;
 		}
 		else {
-			if ((xFinal == this.x)&&(yFinal == this.y + 1)) {
+			if ((xFinal == this.x) && (yFinal == this.y - 1)) {
+
 				return true;
 			}
 			
 			// pour le saut possible au départ => implique que y = hauteur plateau
-			else if ((xFinal == this.x) && (yFinal == 3)) {
+			else if ((xFinal == this.x) && (yFinal == 4)) {
 				return true;
 			}
 			else {
