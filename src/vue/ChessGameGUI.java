@@ -78,12 +78,13 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		  
 		  for(PieceIHM pieceIHM : piecesIHM) {				
 				for(Coord coord : pieceIHM.getList()) {
-					JLabel piece = new JLabel( new ImageIcon(ChessImageProvider.getImageFile( pieceIHM.getTypePiece(), pieceIHM.getCouleur())) );
+					  JLabel piece = new JLabel( new ImageIcon(ChessImageProvider.getImageFile(pieceIHM.getTypePiece(), pieceIHM.getCouleur()) ));
 					  panel = (JPanel)echiquierGUI.getComponent(coord.x + (coord.y * 8));
 					  panel.add(piece);
+
 				}			
 			}
-
+		  	
 	}
 
 	@Override
