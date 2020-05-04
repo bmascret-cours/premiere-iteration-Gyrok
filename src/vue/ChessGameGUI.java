@@ -57,9 +57,8 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		  }
 		 
 		  
-		  // maintenant on ajoute les pièces
-		  
-		  
+		  //TODO maintenant on ajoute les pièces
+
 	}
 
 	@Override
