@@ -56,7 +56,9 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		  square.setBackground( i % 2 == 0 ? Color.white : Color.black );
 		  }
 		 
-
+		  
+		  // maintenant on ajoute les pièces
+		  
 		  
 	}
 
