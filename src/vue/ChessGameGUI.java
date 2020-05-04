@@ -17,6 +17,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import controler.ChessGameControlers;
+import model.Couleur;
+import tools.ChessImageProvider;
 
 public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionListener,Observer{
 	
@@ -58,7 +60,7 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		 
 		  
 		  //TODO maintenant on ajoute les pièces
-
+		  String imagePiece = ChessImageProvider.getImageFile(String piece.nom, Couleur piece.Couleur);
 	}
 
 	@Override
