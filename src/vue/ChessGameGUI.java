@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -17,7 +18,10 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import controler.ChessGameControlers;
+import controler.controlerLocal.ChessGameControler;
+import model.Coord;
 import model.Couleur;
+import model.PieceIHM;
 import tools.ChessImageProvider;
 
 public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionListener,Observer{
@@ -27,9 +31,9 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 	  JLabel pieceGUI;
 	  int xAdjustment;
 	  int yAdjustment;
-	  
+	  ChessGameControlers chessGameControler;
 	public ChessGameGUI(String string, ChessGameControlers chessGameControler, Dimension dim) {
-		
+		this.chessGameControler = chessGameControler;
 		Dimension boardSize = new Dimension(600, 600);
 		 
 		  //  Use a Layered Pane for this this application
@@ -57,29 +61,27 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		  else
 		  square.setBackground( i % 2 == 0 ? Color.white : Color.black );
 		  }
-		 
-		  
-		  // maintenant on créé les pièces
-		  String PionBlanc = ChessImageProvider.getImageFile( "Pion", Couleur.BLANC);
-		  String FouBlanc = ChessImageProvider.getImageFile( "Fou", Couleur.BLANC);
-		  String CavalierBlanc = ChessImageProvider.getImageFile( "Cavalier", Couleur.BLANC);
-		  String TourBlanc = ChessImageProvider.getImageFile( "Tour", Couleur.BLANC);
-		  String ReineBlanc = ChessImageProvider.getImageFile( "Reine", Couleur.BLANC);
-		  String RoiBlanc = ChessImageProvider.getImageFile( "Roi", Couleur.BLANC);
-		  
-		  String PionNoir = ChessImageProvider.getImageFile( "Pion", Couleur.NOIR);
-		  String FouNoir = ChessImageProvider.getImageFile( "Fou", Couleur.NOIR);
-		  String CavalierNoir = ChessImageProvider.getImageFile( "Cavalier", Couleur.NOIR);
-		  String TourNoir = ChessImageProvider.getImageFile( "Tour", Couleur.NOIR);
-		  String ReineNoir = ChessImageProvider.getImageFile( "Reine", Couleur.NOIR);
-		  String RoiNoir = ChessImageProvider.getImageFile( "Roi", Couleur.NOIR);
-		  
 		  
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1){
-		// TODO Auto-generated method stub
+
+		  List<PieceIHM> piecesIHM = (List<PieceIHM>) arg1;
+		  // placement + récup images: 
+		  JPanel panel;
+		  for (int i = 0; i < 64; i++) {
+				panel = (JPanel)vueChessBoard.getComponent(i);
+				panel.removeAll();
+			}
+		  for(PieceIHM pieceIHM : piecesIHM) {				
+				for(Coord coord : pieceIHM.getList()) {
+					JLabel piece = new JLabel( new ImageIcon(ChessImageProvider.getImageFile( pieceIHM.getTypePiece(), pieceIHM.getCouleur())) );
+					  panel = (JPanel)echiquierGUI.getComponent(coord.x + coord.y*8);
+					  panel.add(piece);
+
+				}			
+			}
 		
 	}
 
