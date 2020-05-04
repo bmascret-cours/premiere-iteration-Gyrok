@@ -59,8 +59,22 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		  }
 		 
 		  
-		  //TODO maintenant on ajoute les pièces
-		  String imagePiece = ChessImageProvider.getImageFile(String piece.nom, Couleur piece.Couleur);
+		  // maintenant on créé les pièces
+		  String PionBlanc = ChessImageProvider.getImageFile( "Pion", Couleur.BLANC);
+		  String FouBlanc = ChessImageProvider.getImageFile( "Fou", Couleur.BLANC);
+		  String CavalierBlanc = ChessImageProvider.getImageFile( "Cavalier", Couleur.BLANC);
+		  String TourBlanc = ChessImageProvider.getImageFile( "Tour", Couleur.BLANC);
+		  String ReineBlanc = ChessImageProvider.getImageFile( "Reine", Couleur.BLANC);
+		  String RoiBlanc = ChessImageProvider.getImageFile( "Roi", Couleur.BLANC);
+		  
+		  String PionNoir = ChessImageProvider.getImageFile( "Pion", Couleur.NOIR);
+		  String FouNoir = ChessImageProvider.getImageFile( "Fou", Couleur.NOIR);
+		  String CavalierNoir = ChessImageProvider.getImageFile( "Cavalier", Couleur.NOIR);
+		  String TourNoir = ChessImageProvider.getImageFile( "Tour", Couleur.NOIR);
+		  String ReineNoir = ChessImageProvider.getImageFile( "Reine", Couleur.NOIR);
+		  String RoiNoir = ChessImageProvider.getImageFile( "Roi", Couleur.NOIR);
+		  
+		  
 	}
 
 	@Override
