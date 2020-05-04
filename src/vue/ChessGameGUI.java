@@ -65,19 +65,19 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1){
+	public void update(Observable o, Object arg1){
 
 		  List<PieceIHM> piecesIHM = (List<PieceIHM>) arg1;
 		  // placement + récup images: 
 		  JPanel panel;
 		  for (int i = 0; i < 64; i++) {
-				panel = (JPanel)vueChessBoard.getComponent(i);
+				panel = (JPanel)echiquierGUI.getComponent(i);
 				panel.removeAll();
 			}
 		  for(PieceIHM pieceIHM : piecesIHM) {				
 				for(Coord coord : pieceIHM.getList()) {
 					JLabel piece = new JLabel( new ImageIcon(ChessImageProvider.getImageFile( pieceIHM.getTypePiece(), pieceIHM.getCouleur())) );
-					  panel = (JPanel)echiquierGUI.getComponent(coord.x + coord.y*8);
+					  panel = (JPanel)echiquierGUI.getComponent(coord.x + coord.y * 8);
 					  panel.add(piece);
 
 				}			
