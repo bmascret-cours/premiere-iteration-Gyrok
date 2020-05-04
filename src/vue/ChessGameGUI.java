@@ -34,7 +34,7 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 	  ChessGameControlers chessGameControler;
 	public ChessGameGUI(String string, ChessGameControlers chessGameControler, Dimension dim) {
 		this.chessGameControler = chessGameControler;
-		Dimension boardSize = new Dimension(600, 600);
+		Dimension boardSize = dim;
 		 
 		  //  Use a Layered Pane for this this application
 		  layeredPane = new JLayeredPane();
@@ -57,9 +57,10 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 		 
 		  int row = (i / 8) % 2;
 		  if (row == 0)
-		  square.setBackground( i % 2 == 0 ? Color.black : Color.white );
+			  square.setBackground( i % 2 == 0 ? Color.white : Color.black );
 		  else
-		  square.setBackground( i % 2 == 0 ? Color.white : Color.black );
+			  square.setBackground( i % 2 == 0 ? Color.black : Color.white );
+		 
 		  }
 		  
 	}
@@ -68,20 +69,18 @@ public class ChessGameGUI extends JFrame implements MouseListener,MouseMotionLis
 	public void update(Observable o, Object arg1){
 
 		  List<PieceIHM> piecesIHM = (List<PieceIHM>) arg1;
-		  // placement + récup images: 
+		  // placement + récup images: merci Hugo Morneau
 		  JPanel panel;
 		  for (int i = 0; i < 64; i++) {
 				panel = (JPanel)echiquierGUI.getComponent(i);
 				panel.removeAll();
-			}
-			
+		  }
+		  
 		  for(PieceIHM pieceIHM : piecesIHM) {				
 				for(Coord coord : pieceIHM.getList()) {
 					JLabel piece = new JLabel( new ImageIcon(ChessImageProvider.getImageFile( pieceIHM.getTypePiece(), pieceIHM.getCouleur())) );
-					  panel = (JPanel)echiquierGUI.getComponent(coord.x + coord.y * 8);
+					  panel = (JPanel)echiquierGUI.getComponent(coord.x + (coord.y * 8));
 					  panel.add(piece);
-					  
-					  System.out.println(panel.toString());
 				}			
 			}
 
